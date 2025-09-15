@@ -9,12 +9,11 @@ export default class ProductDetails {
   }
 
   async init() {
-    // use the datasource to get the details for the current product. findProductById will return a promise! use await or .then() to process it
+    // Obtener los detalles del producto
     this.product = await this.dataSource.findProductById(this.productId);
-    // the product details are needed before rendering the HTML
+    // Renderizar los detalles del producto
     this.renderProductDetails();
-    // once the HTML is rendered, add a listener to the Add to Cart button
-    // Notice the .bind(this). This callback will not work if the bind(this) is missing. Review the readings from this week on 'this' to understand why.
+    // Agregar listener al botón Add to Cart
     document
       .getElementById('addToCart')
       .addEventListener('click', this.addProductToCart.bind(this));
@@ -22,7 +21,20 @@ export default class ProductDetails {
 
   addProductToCart() {
     const cartItems = getLocalStorage("so-cart") || [];
-    cartItems.push(this.product);
+
+    // ⚡ Mejor manejo de cantidad: si el producto ya existe, sumar cantidad
+    const existing = cartItems.find(item => item.Id === this.product.Id);
+    if (existing) {
+      existing.Quantity = (existing.Quantity || 1) + 1;
+    } else {
+      cartItems.push({ 
+        Id: this.product.Id, 
+        Title: this.product.NameWithoutBrand, 
+        Price: this.product.FinalPrice, 
+        Quantity: 1 
+      });
+    }
+
     setLocalStorage("so-cart", cartItems);
   }
 
@@ -31,17 +43,18 @@ export default class ProductDetails {
   }
 }
 
+// ⚡ Cambios mínimos en los IDs y nombres para que coincidan con  HTML
 function productDetailsTemplate(product) {
-  document.querySelector('h2').textContent = product.Brand.Name;
-  document.querySelector('h3').textContent = product.NameWithoutBrand;
+  document.getElementById('productTitle').textContent = product.NameWithoutBrand; // antes querySelector('h2')
+  document.getElementById('productBrand').textContent = product.Brand.Name;       // antes querySelector('h3')
 
   const productImage = document.getElementById('productImage');
   productImage.src = product.Image;
   productImage.alt = product.NameWithoutBrand;
 
-  document.getElementById('productPrice').textContent = product.FinalPrice;
-  document.getElementById('productColor').textContent = product.Colors[0].ColorName;
-  document.getElementById('productDesc').innerHTML = product.DescriptionHtmlSimple;
+  document.getElementById('productPrice').textContent = `¥${product.FinalPrice}`; // opcional agregar símbolo
+  document.getElementById('productColor').textContent = product.Colors?.[0]?.ColorName ?? ''; // evitar error si no hay color
+  document.getElementById('productDescription').innerHTML = product.DescriptionHtmlSimple; // antes productDesc
 
   document.getElementById('addToCart').dataset.id = product.Id;
 }
