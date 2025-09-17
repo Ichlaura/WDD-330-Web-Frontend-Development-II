@@ -1,0 +1,126 @@
+[33mcommit 4239258ca9b8fbdb2e4dc23a24dfd4e6a8d11835[m[33m ([m[1;36mHEAD -> [m[1;32mln--individual2[m[33m, [m[1;31morigin/ln--individual2[m[33m)[m
+Author: laura nunez <laupao41@gmail.com>
+Date:   Wed Sep 17 15:59:55 2025 +0900
+
+    commit lau week 2
+
+[33mcommit 957da1f3ce7b2d431ec86f0e7d07b6f1249e6767[m[33m ([m[1;31morigin/lau--team17[m[33m, [m[1;32mlau--team17[m[33m)[m
+Author: laura nunez <laupao41@gmail.com>
+Date:   Mon Sep 15 11:42:54 2025 +0900
+
+    lauraW02_Team_Activity: Dynamic Product Detail Page
+
+[33mcommit d862e0106b1e608af614e7437275bc17ed4b3df1[m[33m ([m[1;32mXX--team2[m[33m, [m[1;32mLauraN--individual1[m[33m)[m
+Merge: 8331fe5 cfb4ef5
+Author: laura nunez <laupao41@gmail.com>
+Date:   Mon Sep 15 09:47:53 2025 +0900
+
+    Merge branch 'main' of https://github.com/Ichlaura/WDD-330-Web-Frontend-Development-II into LauraN--individual1
+
+[33mcommit cfb4ef5001484264b85deccd0e2f8f7e9ec274c9[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: c1d4da4 b6b6bd2
+Author: Sergio Herrera Rivera <123593532+Seruhio30@users.noreply.github.com>
+Date:   Fri Sep 12 22:53:37 2025 -0600
+
+    Merge pull request #6 from Seruhio30/driversh--team17
+    
+    Driversh  team17
+
+[33mcommit b6b6bd2797601a6fa844c15d71653e387546a823[m
+Merge: 8faaf0a c1d4da4
+Author: Sergio Herrera Rivera <123593532+Seruhio30@users.noreply.github.com>
+Date:   Fri Sep 12 22:27:20 2025 -0600
+
+    Merge branch 'main' into driversh--team17
+
+[33mcommit 8faaf0a1905a6879f39aa085f66e5a1982c54579[m
+Author: Seruhio30 <sh0041314@gmail.com>
+Date:   Fri Sep 12 22:17:23 2025 -0600
+
+    week 2 team activity error solution for cast
+
+[33mcommit 78af3ebfb3c6daf90b5d7657c56ac8c81073ae57[m
+Author: Seruhio30 <sh0041314@gmail.com>
+Date:   Fri Sep 12 21:35:14 2025 -0600
+
+    week2 team activity
+
+[33mcommit c1d4da4c6ee7a99eb40be5f4e30ba7b622d3d58d[m
+Author: Seruhio30 <sh0041314@gmail.com>
+Date:   Fri Sep 12 19:34:25 2025 -0600
+
+    cambios
+
+[33mcommit 7f2d87e908805844b266b872e5080eac9e482f53[m
+Author: Seruhio30 <sh0041314@gmail.com>
+Date:   Fri Sep 12 19:25:23 2025 -0600
+
+    add array to keep the car item
+
+[33mcommit 5418599ba0c6dca480c1354bb3546784d3413e25[m[33m ([m[1;31morigin/driversh--team17[m[33m)[m
+Author: Seruhio30 <sh0041314@gmail.com>
+Date:   Thu Sep 11 22:37:22 2025 -0600
+
+    team activity week 2
+
+[33mcommit 92e916071b030fe19d92cbd3f43b1f73e95002ca[m
+Author: Seruhio30 <sh0041314@gmail.com>
+Date:   Fri Sep 5 17:51:08 2025 -0600
+
+    local changes: format, lint and team.txt
+
+[33mcommit c2fc22d459e441417a194a38cc5d97cb29af7631[m
+Author: Seruhio30 <sh0041314@gmail.com>
+Date:   Fri Sep 5 17:28:28 2025 -0600
+
+    Added my name to team.txt
+
+[33mcommit 8331fe599d3be244e57cc80b4c9e0ccb6c096fe4[m[33m ([m[1;31morigin/ln--branch-test[m[33m, [m[1;32mln--branch-test[m[33m)[m
+Author: laura nunez <laupao41@gmail.com>
+Date:   Fri Sep 5 17:58:51 2025 +0900
+
+    how to create a branch laura.txt
+
+[33mcommit 28b5015fd9d8dade2e3b6fc168c1c9c6f8509512[m
+Author: laura nunez <laupao41@gmail.com>
+Date:   Fri Sep 5 17:52:12 2025 +0900
+
+    Agrego archivo laura.txt en mi branch
+
+[33mcommit e2429b18ef5321c92f23e921e02d7d5b17dcf3c9[m[33m ([m[1;32mmain[m[33m)[m
+Author: laura nunez <laupao41@gmail.com>
+Date:   Fri Sep 5 17:49:30 2025 +0900
+
+    team.txt
+    "Agrego mi nombre y link al Trello en team.txt"
+
+[33mcommit bac46bd7551a6ab9124ee52e6cc498e54c171d52[m
+Merge: 5877eaf 62657e7
+Author: laura nunez <laupao41@gmail.com>
+Date:   Fri Sep 5 17:47:28 2025 +0900
+
+    Merge branch 'main' of https://github.com/Ichlaura/WDD-330-Web-Frontend-Development-II
+
+[33mcommit 5877eaf4b750588feee50e72785332f9d810fadf[m
+Author: laura nunez <laupao41@gmail.com>
+Date:   Fri Sep 5 17:44:06 2025 +0900
+
+    readme.md change by Laura
+
+[33mcommit 62657e7c29b2c31b93fc5d243d0a1ab386cc4ca7[m
+Author: Laura Nuñez <77087152+Ichlaura@users.noreply.github.com>
+Date:   Fri Sep 5 17:40:19 2025 +0900
+
+    Update README.md
+
+[33mcommit 4200af85caae396c0c84780521563d860da7e9b7[m
+Author: laura nunez <laupao41@gmail.com>
+Date:   Fri Sep 5 17:27:13 2025 +0900
+
+    initial commit
+
+[33mcommit ab53ce8661e4e386d5c96fded65d31bee427153c[m
+Author: Laura Nuñez <77087152+Ichlaura@users.noreply.github.com>
+Date:   Fri Sep 5 16:54:26 2025 +0900
+
+    Initial commit
