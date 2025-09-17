@@ -1,40 +1,36 @@
+# ⛺ SleepOutside Project
 
-<<<<<<< HEAD
-randomized URL Netlify:
+Randomized URL (Netlify Deployment):  
+[https://68baa0976bd7e1f45914c14d--fastidious-eclair-b66d46.netlify.app/](https://68baa0976bd7e1f45914c14d--fastidious-eclair-b66d46.netlify.app/)
 
-https://68baa0976bd7e1f45914c14d--fastidious-eclair-b66d46.netlify.app/
+---
 
-=======
->>>>>>> 62657e7c29b2c31b93fc5d243d0a1ab386cc4ca7
-## WDD 330 - Web Frontend Development II
+## 📚 WDD 330 - Web Frontend Development II
 
-randomized URL  Netlify:
+This repository contains the starter code for the **SleepOutside web application project**.  
+It includes branches for both **team** and **individual** assignments throughout the course.
 
-https://68baa0976bd7e1f45914c14d--fastidious-eclair-b66d46.netlify.app/
+Course Link: [WDD 330 Course Material](https://byui-cse.github.io/wdd330-ww-course/week01/team.html)
 
+---
 
-### ⛺ SleepOutside Starter Code
+## 🛠️ Prerequisites
 
- - This repository is the start of the SleepOutside web application project for WDD 330. The repository contains branches which are checkpoints for the team and individual assignments throughout the course.
+- Node.js must be installed on your system.  
+Follow the official [WDD 330 Setup Guide](https://byui-cse.github.io/wdd330-ww-course/intro/).
 
- - https://byui-cse.github.io/wdd330-ww-course/week01/team.html
+---
 
-### Prerequisites
+## 🚀 Common Workflow Commands
 
-- You must have Node installed to run the following commands.
-[WDD 330 Setup Environment](https://byui-cse.github.io/wdd330-ww-course/intro/) 
+- `npm run lint` → Runs ESLint to find and report syntax issues.  
+- `npm run format` → Runs Prettier to automatically format your code.  
+- `npm run start` → Starts a local development server and reloads on JS/CSS changes.  
+- `npm run build` → Builds production-ready files for deployment.
 
-### Common Workflow Commands
+---
 
-- `npm run lint` to run ESLint against your code to find errors.
-- `npm run format` to run Prettier to automatically format your code.
-- `npm run start` starts up a local server and updates on any JS or CSS/SCSS 
-- `npm run build` to build final files when you are ready to turn in.
+## 👥 Team Workflow
 
-
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> 62657e7c29b2c31b93fc5d243d0a1ab386cc4ca7
+Each branch represents a checkpoint or assignment.  
+Use pull requests for merging changes into `main` after code review.
