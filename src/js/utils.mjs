@@ -99,3 +99,22 @@ export function updateCartCount() {
     countElement.textContent = itemCount;
   }
 }
+export function isDiscounted(product) {
+  return product.discount && product.discount > 0;
+}
+
+export function alertMessage(message, scroll = true) {
+  const alert = document.createElement('div');
+  alert.classList.add('alert');
+  alert.innerHTML = `<span>${message}</span><button class="close-alert">✖</button>`;
+
+  alert.addEventListener('click', function (e) {
+    if (e.target.classList.contains('close-alert')) {
+      alert.remove();
+    }
+  });
+
+  const main = document.querySelector('main');
+  if (main) main.prepend(alert);
+  if (scroll) window.scrollTo(0, 0);
+}

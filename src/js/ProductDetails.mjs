@@ -1,4 +1,7 @@
-import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage, getParam, alertMessage } from "./utils.mjs";
+
+const productId = getParam('id');
+console.log('Product ID:', productId);
 
 export default class ProductDetails {
 
@@ -9,65 +12,87 @@ export default class ProductDetails {
   }
 
   async init() {
-    // use the datasource to get the details for the current product. findProductById will return a promise! use await or .then() to process it
-    this.product = await this.dataSource.findProductById(this.productId);
-    // the product details are needed before rendering the HTML
-    this.renderProductDetails();
-    // once the HTML is rendered, add a listener to the Add to Cart button
-    // Notice the .bind(this). This callback will not work if the bind(this) is missing. Review the readings from this week on 'this' to understand why.
-    document
-      .getElementById('addToCart')
-      .addEventListener('click', this.addProductToCart.bind(this));
+
+    try {
+      const storedProduct = localStorage.getItem('selected-product');
+      if (!storedProduct) throw new Error('No hay producto guardado');
+
+      this.product = JSON.parse(storedProduct);
+      this.renderProductDetails();
+
+      document
+        .getElementById('addToCart')
+        .addEventListener('click', this.addProductToCart.bind(this));
+
+
+      localStorage.removeItem('selected-product');
+    } catch (err) {
+      console.error('Error al cargar el producto:', err);
+      document.querySelector('main').innerHTML = `
+      <p class="error-message">Producto no disponible. Intenta desde el listado.</p>
+    `;
+    }
   }
+
 
   addProductToCart() {
     const cartItems = getLocalStorage("so-cart") || [];
-    cartItems.push(this.product);
-    setLocalStorage("so-cart", cartItems);
-  }
 
-  renderProductDetails() {
-    productDetailsTemplate(this.product);
+    // Buscar si el producto ya está en el carrito
+    const existingItem = cartItems.find(item => item.Id === this.product.Id);
+
+    if (existingItem) {
+      // Si ya existe, incrementar la cantidad
+      existingItem.quantity = (existingItem.quantity || 1) + 1;
+    } else {
+      // Si no existe, agregarlo con cantidad 1
+      const newItem = { ...this.product, quantity: 1 };
+      cartItems.push(newItem);
+    }
+
+    setLocalStorage("so-cart", cartItems);
+    alertMessage("Producto agregado al carrito 🛒", false);
   }
 }
+
 
 function productDetailsTemplate(product) {
   document.querySelector('h2').textContent = product.Brand.Name;
   document.querySelector('h3').textContent = product.NameWithoutBrand;
 
   const productImage = document.getElementById('productImage');
-  productImage.src = product.Image;
-  productImage.alt = product.NameWithoutBrand;
+  productImage.src = product.Images?.PrimaryLarge || product.Images?.PrimaryMedium || '/images/placeholder.png';
 
-  document.getElementById('productPrice').textContent = product.FinalPrice;
-  document.getElementById('productColor').textContent = product.Colors[0].ColorName;
-  document.getElementById('productDesc').innerHTML = product.DescriptionHtmlSimple;
+  productImage.alt = product.NameWithoutBrand || product.Name;
+
+  document.getElementById('productPrice').textContent = `$${product.FinalPrice?.toFixed(2) || 'N/A'}`;
+  document.getElementById('productColor').textContent = product.Colors?.[0]?.ColorName || 'Color no disponible';
+  document.getElementById('productDesc').innerHTML = product.DescriptionHtmlSimple || 'Sin descripción disponible';
 
   document.getElementById('addToCart').dataset.id = product.Id;
 
-    // aqui se agrega el badge de descuento si aplica
-const original = product.SuggestedRetailPrice;
-const final = product.FinalPrice;
+  // aqui se agrega el badge de descuento si aplica
+  const original = product.SuggestedRetailPrice;
+  const final = product.FinalPrice;
 
-if (final < original) {
-  const discountPercent = Math.round(((original - final) / original) * 100);
+  if (final < original) {
+    const discountPercent = Math.round(((original - final) / original) * 100);
 
-  // eliminar badge viejo si existe
-  const oldBadge = document.querySelector(".discount-badge");
-  if (oldBadge) oldBadge.remove();
+    // eliminar badge viejo si existe
+    const oldBadge = document.querySelector(".discount-badge");
+    if (oldBadge) oldBadge.remove();
 
-  // crear nuevo badge
-  const discountBadge = document.createElement("div");
-  discountBadge.classList.add("discount-badge");
-  discountBadge.textContent = `-${discountPercent}% OFF`; // inglés
+    // crear nuevo badge
+    const discountBadge = document.createElement("div");
+    discountBadge.classList.add("discount-badge");
+    discountBadge.textContent = `-${discountPercent}% OFF`; // inglés
 
-  const productContainer = document.querySelector(".product-detail");
-  if (productContainer) {
-    productContainer.prepend(discountBadge);
+    const productContainer = document.querySelector(".product-detail");
+    if (productContainer) {
+      productContainer.prepend(discountBadge);
+    }
   }
-}
 
 
 }
 
-      
